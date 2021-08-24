@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { OSEnum } from 'src/app/enums/OSEnum';
 import { Computer } from 'src/app/interfaces/computer';
+import { ComputerService } from 'src/app/services/computer.service';
 
 @Component({
   selector: 'app-computer',
@@ -9,26 +9,27 @@ import { Computer } from 'src/app/interfaces/computer';
 })
 
 export class ComputerComponent implements OnInit {
-  computers: Computer[] = [
-    {
-      id: 1,
-      os: OSEnum.LINUX,
-      title: "Teste",
-      description: "Description",
-      price: 9999
-    },
-    {
-      id: 2,
-      os: OSEnum.LINUX,
-      title: "Teste",
-      description: "Description",
-      price: 9999
-    }
-  ]
+  loading: boolean = true
+  computers: Computer[] = []
+  errorFetching: boolean = false
 
-  constructor() { }
+  constructor(
+    private computerService: ComputerService
+  ) { }
 
   ngOnInit(): void {
+    this.computerService.getComputers()
+      .subscribe(
+        res => {
+          this.computers = res
+          this.loading = false
+        },
+        err => {
+          console.error("Error fetching computers", err)
+          this.errorFetching = true
+          this.loading = false
+        }
+      )
   }
 
 }
