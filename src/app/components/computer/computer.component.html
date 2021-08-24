@@ -11,6 +11,15 @@
     </p>
 
     <div *ngIf="!loading && !errorFetching">
+        <div class="title">
+            <h1>Computers</h1>
+
+            <div class="controls">
+                <button type="button" class="btn btn-primary">New</button>
+            </div>
+        </div>
+        <hr>
+
         <ul *ngIf="computers.length > 0" class="list-unstyled row">
             <li class="col" *ngFor="let computer of computers">
                 <div class="card">
