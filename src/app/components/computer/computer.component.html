@@ -1,0 +1,13 @@
+<div class="container">
+    <ul class="list-unstyled row">
+        <li class="col" *ngFor="let computer of computers">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ computer.title }}</h5>
+                    <p class="card-text">{{ computer.description }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

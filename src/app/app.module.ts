@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { QuestionsComponent } from './questions/questions.component';
-import { AnswersComponent } from './answers/answers.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { AnswersComponent } from './components/answers/answers.component';
+import { ComputerComponent } from './components/computer/computer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { AnswersComponent } from './answers/answers.component';
     NavbarComponent,
     HomeComponent,
     QuestionsComponent,
-    AnswersComponent
+    AnswersComponent,
+    ComputerComponent
   ],
   imports: [
     BrowserModule,
