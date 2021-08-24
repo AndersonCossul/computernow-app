@@ -5,6 +5,10 @@
 .card {
     text-align: center;
     max-width: 15rem;
+
+    &-body {
+      text-align: left;  
+    }
 }
 
 .spinner-container {

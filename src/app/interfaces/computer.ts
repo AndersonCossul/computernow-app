@@ -1,8 +1,6 @@
-import { OSEnum } from "../enums/OSEnum";
-
 export interface Computer {
     id: number,
-    os: OSEnum,
+    os: string,
     title: string,
     description: string,
     price: number,

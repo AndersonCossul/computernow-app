@@ -16,4 +16,9 @@ export class ComputerService {
   getComputers(): Observable<Computer[]> {
     return this.http.get<Computer[]>(`${environment.apiBaseUrl}/v1/computer`)
   }
+
+  newComputer(body: Computer): Observable<Computer> {
+    body.os = body.os.toUpperCase()
+    return this.http.post<Computer>(`${environment.apiBaseUrl}/v1/computer`, body)
+  }
 }
