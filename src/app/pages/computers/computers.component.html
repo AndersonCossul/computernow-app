@@ -15,8 +15,7 @@
             <h1>Computers</h1>
 
             <div class="controls">
-                <button type="button" class="btn btn-primary"
-                    (click)="onNewComputerClicked(newComputerModal)">New</button>
+                <button type="button" class="btn btn-primary">New</button>
             </div>
         </div>
         <hr>
@@ -40,7 +39,7 @@
         <ng-template #newComputerModal let-modal>
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Computer</h4>
-                <button type="button" class="close" aria-label="Close" (click)="onModalDismissed()">
+                <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -65,7 +64,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="onModalSavePressed()">Save</button>
+                <button type="button" class="btn btn-outline-dark">Save</button>
             </div>
         </ng-template>
     </div>

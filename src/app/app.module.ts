@@ -1,32 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { QuestionsComponent } from './components/questions/questions.component';
-import { AnswersComponent } from './components/answers/answers.component';
-import { ComputerComponent } from './components/computer/computer.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { QuestionsComponent } from './pages/questions/questions.component';
+import { AnswersComponent } from './pages/answers/answers.component';
+import { ComputersComponent } from './pages/computers/computers.component';
+
+import { SharedModule } from './shared/shared.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     QuestionsComponent,
     AnswersComponent,
-    ComputerComponent
+    ComputersComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'corporate' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

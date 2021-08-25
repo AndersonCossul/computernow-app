@@ -1,2 +1,17 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<nb-layout>
+  <nb-layout-header>
+    <a class="logo-link" routerLink="/">
+      Computer Now
+    </a>
+  </nb-layout-header>
+
+  <nb-sidebar>
+    <app-sidebar></app-sidebar>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed></nb-layout-footer>
+</nb-layout>
