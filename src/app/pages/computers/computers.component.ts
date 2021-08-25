@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 import { Computer } from 'src/app/core/models/computer';
 import { ComputerService } from 'src/app/core/services/computer.service';
@@ -9,7 +10,7 @@ import { ComputerService } from 'src/app/core/services/computer.service';
   styleUrls: ['./computers.component.scss']
 })
 
-export class ComputersComponent implements OnInit {
+export class ComputersComponent implements OnInit, OnDestroy {
   loading: boolean = true;
   computers: Computer[] = [];
   errorFetching: boolean = false;
@@ -26,6 +27,7 @@ export class ComputersComponent implements OnInit {
     description: '',
     price: 0
   });
+  computersSub: Subscription = new Subscription();
 
   constructor(
     private computerService: ComputerService,
@@ -37,7 +39,7 @@ export class ComputersComponent implements OnInit {
   }
 
   getComputers(): void {
-    this.computerService.getComputers()
+    this.computersSub = this.computerService.getComputers()
       .subscribe(
         res => {
           this.computers = res;
@@ -49,5 +51,9 @@ export class ComputersComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  ngOnDestroy(): void {
+    this.computersSub.unsubscribe();
   }
 }
